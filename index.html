@@ -55,6 +55,69 @@
     padding: 0 28px;
   }
 
+  /* QR BANNER (for visitors who scanned a ball QR code) */
+  .qr-banner {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: var(--cream);
+    padding: 14px 0;
+    border-bottom: 2px solid var(--gold);
+    position: relative;
+    display: none;
+  }
+  body.qr-visitor .qr-banner { display: block; }
+  .qr-banner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .qr-banner-text {
+    font-size: 14px;
+    line-height: 1.5;
+    flex: 1;
+    min-width: 240px;
+  }
+  .qr-banner-text strong {
+    color: var(--gold-bright);
+    font-weight: 600;
+  }
+  .qr-banner-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .qr-banner-link {
+    color: var(--gold-bright);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--gold-bright);
+    padding-bottom: 2px;
+    white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .qr-banner-link:hover {
+    color: var(--cream);
+    border-color: var(--cream);
+  }
+  .qr-dismiss {
+    background: none;
+    border: none;
+    color: rgba(246, 241, 230, 0.6);
+    font-size: 26px;
+    cursor: pointer;
+    padding: 0 6px;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+  .qr-dismiss:hover { color: var(--cream); }
+  @media (max-width: 700px) {
+    .qr-banner-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .qr-banner-actions { width: 100%; justify-content: space-between; }
+  }
+
   /* NAV */
   nav {
     padding: 22px 0;
@@ -693,6 +756,18 @@
 </head>
 <body>
 
+<div class="qr-banner" id="qr-banner" role="region" aria-label="QR code visitor welcome">
+  <div class="container qr-banner-inner">
+    <div class="qr-banner-text">
+      <strong>You found one of our golf balls!</strong> Thanks for scanning. Drop us a line about where you found it — or scroll down if you'd like custom balls of your own.
+    </div>
+    <div class="qr-banner-actions">
+      <a href="#" class="qr-banner-link" id="qr-tell-link">Tell us where →</a>
+      <button class="qr-dismiss" type="button" onclick="dismissQrBanner()" aria-label="Dismiss this message">×</button>
+    </div>
+  </div>
+</div>
+
 <nav>
   <div class="container nav-inner">
     <a href="#" class="nav-logo">
@@ -1072,6 +1147,86 @@ Thanks!</pre>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ===== QR CODE VISITOR DETECTION =====
+     Triggers when URL has ?qr=... parameter (from QR codes printed on golf balls).
+     Examples:
+       https://flyingbindustries.com?qr=1         (generic QR scan)
+       https://flyingbindustries.com?qr=ABC123    (specific ball ID for tracking)
+     Supports future expansion: any value other than "1" or "true" is treated as a ball ID.
+  */
+  (function initQrMode() {
+    const params = new URLSearchParams(window.location.search);
+    const qr = params.get('qr');
+    if (!qr) return; // Not a QR visitor — page stays in default mode.
+
+    const ballId = (qr === '1' || qr.toLowerCase() === 'true') ? null : qr;
+
+    // 1. Show the banner.
+    document.body.classList.add('qr-visitor');
+
+    // 2. Update the hero eyebrow text to greet them personally.
+    const eyebrow = document.querySelector('.eyebrow');
+    if (eyebrow) eyebrow.textContent = 'Welcome — You Found One of Our Balls';
+
+    // 3. Build the "Tell us where you found it" simple email link for the banner.
+    //    This is for people who just want to share, no purchase required.
+    const tellSubject = 'I Found One of Your Golf Balls!';
+    const idLine = ballId ? 'Ball ID (from QR code): ' + ballId + '\n' : '';
+    const tellBody =
+      'Hi,\n\n' +
+      "I found one of your custom golf balls in the wild and scanned the QR code!\n\n" +
+      idLine +
+      'Where I found it: \n' +
+      'When (approximate date): \n' +
+      'Course / location: \n' +
+      'Condition of the ball: \n' +
+      'Anything else about the find: \n\n' +
+      'A bit about me (optional): \n\n' +
+      'Thanks for the fun surprise!\n';
+    const tellMailto = 'mailto:orders@flyingbindustries.com?subject=' +
+      encodeURIComponent(tellSubject) + '&body=' + encodeURIComponent(tellBody);
+    const tellLink = document.getElementById('qr-tell-link');
+    if (tellLink) tellLink.href = tellMailto;
+
+    // 4. Inject a "FOUND BALL" section into the regular quote-request templates,
+    //    so if they decide to order, they'll also tell us about the find.
+    const foundSection =
+      '===== I FOUND ONE OF YOUR BALLS =====\n' +
+      idLine +
+      'Where I found it: \n' +
+      'When (approximate date): \n' +
+      'Course / location: \n\n';
+
+    document.querySelectorAll('a[href^="mailto:orders@flyingbindustries.com?subject=Custom"]').forEach(function(link) {
+      try {
+        const url = new URL(link.href);
+        let body = url.searchParams.get('body') || '';
+        body = body.replace(
+          'Here are my details:\n',
+          'Here are my details:\n\n' + foundSection
+        );
+        url.searchParams.set('body', body);
+        link.href = url.toString();
+      } catch (e) {
+        console.error('Could not update mailto link:', e);
+      }
+    });
+
+    // 5. Update the visible fallback template too, so the copy-to-clipboard
+    //    version also includes the found-ball section.
+    const tplEl = document.getElementById('email-template');
+    if (tplEl) {
+      tplEl.textContent = tplEl.textContent.replace(
+        'Here are my details:\n',
+        'Here are my details:\n\n' + foundSection
+      );
+    }
+  })();
+
+  function dismissQrBanner() {
+    document.body.classList.remove('qr-visitor');
+  }
 
   function copyTemplate(btn) {
     const text = document.getElementById('email-template').textContent;

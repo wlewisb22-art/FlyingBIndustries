@@ -48,6 +48,48 @@ To view your stats, go to https://analytics.google.com and sign in with the Goog
 
 If you ever need to swap the ID (for example, if you create a new property), open `index.html`, find the two places that say `G-11YQDNWPYJ` near the top, and replace both.
 
+## QR Codes for Golf Balls
+
+The site recognizes visitors who arrive after scanning a QR code printed on one of your golf balls. They get a friendly welcome banner at the top, a different hero greeting, and the email templates automatically include a "where did you find it" section.
+
+### URL format
+
+Use this URL when generating your QR codes:
+
+```
+https://flyingbindustries.com?qr=1
+```
+
+That's all you need to start. Anyone who scans a ball with that QR code will see the "found a ball" experience.
+
+### When you're ready to track individual balls or batches
+
+The site already supports unique IDs. Just replace the `1` with whatever code you want — letters, numbers, or both. Examples:
+
+```
+https://flyingbindustries.com?qr=BATCH001     (a whole production run)
+https://flyingbindustries.com?qr=2026-A-042   (year-batch-ball number)
+https://flyingbindustries.com?qr=W042         (any short code you want)
+```
+
+When the visitor emails you, the ball's ID will automatically appear at the top of the email so you can match it to your records. No code changes needed — the page reads whatever value comes after `qr=` and uses it.
+
+### Generating the QR codes
+
+Any free QR generator works. A couple of options:
+- https://www.qr-code-generator.com (no sign-up needed for basic codes)
+- https://www.qrcode-monkey.com (more design options, can add your logo)
+
+Paste your URL (e.g., `https://flyingbindustries.com?qr=1`), download the PNG, and send it to whoever's printing the balls. Use the highest error-correction level (usually labeled "H" or "30%") so the code still scans even after the ball gets scuffed up on a course.
+
+### Testing it before printing
+
+Just add `?qr=1` to your live URL in any browser to preview what a QR visitor sees:
+- Live test: `https://flyingbindustries.com?qr=1`
+- With a fake ball ID: `https://flyingbindustries.com?qr=TEST123`
+
+You should see the gold-bordered navy banner at the top with "You found one of our golf balls!" and a different hero subtitle. Click "Tell us where →" or the regular Request a Quote button — both emails should now include the found-ball questions.
+
 ## Editing the site
 The whole site is one HTML file. Open `index.html` in any text editor (VS Code is free and great) to change copy, colors, or layout. Push the changes back to GitHub and they go live in seconds.
 
