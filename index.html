@@ -559,6 +559,79 @@
     padding-bottom: 4px;
   }
 
+  /* FALLBACK TEMPLATE */
+  .fallback-template {
+    margin: 70px auto 0;
+    max-width: 620px;
+    text-align: center;
+  }
+  .fallback-template summary {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--muted);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    cursor: pointer;
+    list-style: none;
+    display: inline-block;
+    padding: 0;
+    border: none;
+    background: none;
+  }
+  .fallback-template summary::after,
+  .fallback-template[open] summary::after { content: ''; display: none; }
+  .fallback-template summary::-webkit-details-marker { display: none; }
+  .fallback-template summary:hover { color: var(--navy); }
+  .fallback-content {
+    margin-top: 28px;
+    padding: 28px;
+    background: var(--cream-deep);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    text-align: left;
+  }
+  .fallback-intro {
+    font-size: 13px !important;
+    color: var(--muted) !important;
+    margin-bottom: 16px !important;
+    text-align: center !important;
+    line-height: 1.5 !important;
+    max-width: 100% !important;
+  }
+  #email-template {
+    font-family: ui-monospace, 'SF Mono', 'Cascadia Mono', 'Menlo', monospace;
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--ink);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin-bottom: 18px;
+    background: var(--cream);
+    padding: 18px;
+    border-radius: 4px;
+    border: 1px solid var(--line);
+    max-height: 360px;
+    overflow-y: auto;
+    text-align: left;
+  }
+  .copy-btn {
+    display: block;
+    margin: 0 auto;
+    padding: 12px 24px;
+    border-radius: 4px;
+    background: var(--navy);
+    color: var(--cream);
+    border: none;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .copy-btn:hover { background: var(--navy-light); }
+  .copy-btn.copied { background: var(--gold); color: var(--navy); }
+
   /* PRIVACY */
   .privacy {
     background: var(--cream-deep);
@@ -640,7 +713,7 @@
       <h1>Your image. <em>Your ball.</em><br/>Your game.</h1>
       <p>Personalized golf balls for tournaments, weddings, corporate events, gifts, or just because. Tell us what you want — we'll send you a quote.</p>
       <div class="cta-group">
-        <a href="mailto:orders@flyingbindustries.com?subject=Custom%20Golf%20Ball%20Request" class="btn btn-primary">
+        <a href="mailto:orders@flyingbindustries.com?subject=Custom%20Golf%20Ball%20Request&body=Hi%2C%0A%0AI%27d%20like%20a%20quote%20for%20custom%20golf%20balls.%20Here%20are%20my%20details%3A%0A%0A%3D%3D%3D%3D%3D%20ORDER%20%3D%3D%3D%3D%3D%0A%0ATotal%20quantity%20needed%3A%20%0A%0ABall%20preference%20%28mark%20ONE%20with%20an%20X%29%3A%0A%5B%20%5D%20Option%20A%20-%20I%20will%20provide%20my%20own%20golf%20balls%20%28I%27ll%20ship%20them%20to%20you%29%0A%5B%20%5D%20Option%20B%20-%20Please%20source%20a%20specific%20brand%20for%20me%0A%20%20%20%20Brand/model%3A%20%0A%5B%20%5D%20Option%20C%20-%20Use%20Costco%20Kirkland%20Signature%0A%0A%3D%3D%3D%3D%3D%20ARTWORK%20%3D%3D%3D%3D%3D%0A%0ANumber%20of%20images%20I%27m%20attaching%3A%20%0A%0AIf%20sending%20more%20than%20ONE%20image%2C%20please%20mark%20one%20option%3A%0A%5B%20%5D%20Same%20ball%2C%20two%20images%20on%20opposite%20sides%0A%5B%20%5D%20Different%20images%20on%20different%20balls%0A%20%20%20%20Breakdown%20%28example%3A%2012%20with%20Image%20A%2C%2012%20with%20Image%20B%29%3A%20%0A%0A%3D%3D%3D%3D%3D%20TIMING%20%3D%3D%3D%3D%3D%0A%0ANeeded%20by%20%28date%2C%20or%20write%20%27no%20rush%27%29%3A%20%0A%0A%3D%3D%3D%3D%3D%20SHIPPING%20%26%20CONTACT%20%3D%3D%3D%3D%3D%0A%0AYour%20name%3A%20%0APhone%3A%20%0AShipping%20address%20%28street%2C%20city%2C%20state%2C%20ZIP%29%3A%20%0A%0A%3D%3D%3D%3D%3D%20OPTIONAL%20%3D%3D%3D%3D%3D%0A%0AOccasion%20%28wedding%2C%20tournament%2C%20gift%2C%20corporate%20event%2C%20etc.%29%3A%20%0A%0AAnything%20else%20we%20should%20know%3A%20%0A%0A%0A---%20REMINDER%20---%0APlease%20ATTACH%20your%20image%20file%28s%29%20to%20this%20email%20before%20sending.%0AFormat%3A%20PNG%20or%20JPG%2C%20highest%20resolution%20available.%0A%0AThanks%21%0A" class="btn btn-primary">
           Request a Quote →
         </a>
         <a href="#how" class="btn btn-secondary">How It Works</a>
@@ -899,12 +972,65 @@
     <div class="section-num">— Ready When You Are</div>
     <h2>Send us your <em>request</em>.</h2>
     <p>We'll review the details and reply with a custom quote. No commitment until you approve.</p>
-    <a href="mailto:orders@flyingbindustries.com?subject=Custom%20Golf%20Ball%20Request&body=Hi%2C%0A%0AI'd%20like%20a%20quote%20for%20custom%20golf%20balls.%0A%0ATotal%20quantity%3A%0ABall%20preference%20(A%2FB%2FC)%3A%0ADeadline%3A%0AShipping%20address%3A%0AName%20%26%20phone%3A%0A%0A%5BAttach%20your%20image(s)%20to%20this%20email%5D%0A%0AThanks!" class="btn btn-primary">
+    <a href="mailto:orders@flyingbindustries.com?subject=Custom%20Golf%20Ball%20Request&body=Hi%2C%0A%0AI%27d%20like%20a%20quote%20for%20custom%20golf%20balls.%20Here%20are%20my%20details%3A%0A%0A%3D%3D%3D%3D%3D%20ORDER%20%3D%3D%3D%3D%3D%0A%0ATotal%20quantity%20needed%3A%20%0A%0ABall%20preference%20%28mark%20ONE%20with%20an%20X%29%3A%0A%5B%20%5D%20Option%20A%20-%20I%20will%20provide%20my%20own%20golf%20balls%20%28I%27ll%20ship%20them%20to%20you%29%0A%5B%20%5D%20Option%20B%20-%20Please%20source%20a%20specific%20brand%20for%20me%0A%20%20%20%20Brand/model%3A%20%0A%5B%20%5D%20Option%20C%20-%20Use%20Costco%20Kirkland%20Signature%0A%0A%3D%3D%3D%3D%3D%20ARTWORK%20%3D%3D%3D%3D%3D%0A%0ANumber%20of%20images%20I%27m%20attaching%3A%20%0A%0AIf%20sending%20more%20than%20ONE%20image%2C%20please%20mark%20one%20option%3A%0A%5B%20%5D%20Same%20ball%2C%20two%20images%20on%20opposite%20sides%0A%5B%20%5D%20Different%20images%20on%20different%20balls%0A%20%20%20%20Breakdown%20%28example%3A%2012%20with%20Image%20A%2C%2012%20with%20Image%20B%29%3A%20%0A%0A%3D%3D%3D%3D%3D%20TIMING%20%3D%3D%3D%3D%3D%0A%0ANeeded%20by%20%28date%2C%20or%20write%20%27no%20rush%27%29%3A%20%0A%0A%3D%3D%3D%3D%3D%20SHIPPING%20%26%20CONTACT%20%3D%3D%3D%3D%3D%0A%0AYour%20name%3A%20%0APhone%3A%20%0AShipping%20address%20%28street%2C%20city%2C%20state%2C%20ZIP%29%3A%20%0A%0A%3D%3D%3D%3D%3D%20OPTIONAL%20%3D%3D%3D%3D%3D%0A%0AOccasion%20%28wedding%2C%20tournament%2C%20gift%2C%20corporate%20event%2C%20etc.%29%3A%20%0A%0AAnything%20else%20we%20should%20know%3A%20%0A%0A%0A---%20REMINDER%20---%0APlease%20ATTACH%20your%20image%20file%28s%29%20to%20this%20email%20before%20sending.%0AFormat%3A%20PNG%20or%20JPG%2C%20highest%20resolution%20available.%0A%0AThanks%21%0A" class="btn btn-primary">
       Email orders@flyingbindustries.com →
     </a>
     <div>
       <a href="mailto:orders@flyingbindustries.com" class="email-display">orders@flyingbindustries.com</a>
     </div>
+
+    <details class="fallback-template">
+      <summary>Email app didn't open? Tap to view and copy the template instead</summary>
+      <div class="fallback-content">
+        <p class="fallback-intro">Copy this template, paste it into a new email to <strong>orders@flyingbindustries.com</strong>, fill in your details, and attach your image(s) before sending.</p>
+        <pre id="email-template">Hi,
+
+I'd like a quote for custom golf balls. Here are my details:
+
+===== ORDER =====
+
+Total quantity needed: 
+
+Ball preference (mark ONE with an X):
+[ ] Option A - I will provide my own golf balls (I'll ship them to you)
+[ ] Option B - Please source a specific brand for me
+    Brand/model: 
+[ ] Option C - Use Costco Kirkland Signature
+
+===== ARTWORK =====
+
+Number of images I'm attaching: 
+
+If sending more than ONE image, please mark one option:
+[ ] Same ball, two images on opposite sides
+[ ] Different images on different balls
+    Breakdown (example: 12 with Image A, 12 with Image B): 
+
+===== TIMING =====
+
+Needed by (date, or write 'no rush'): 
+
+===== SHIPPING & CONTACT =====
+
+Your name: 
+Phone: 
+Shipping address (street, city, state, ZIP): 
+
+===== OPTIONAL =====
+
+Occasion (wedding, tournament, gift, corporate event, etc.): 
+
+Anything else we should know: 
+
+
+--- REMINDER ---
+Please ATTACH your image file(s) to this email before sending.
+Format: PNG or JPG, highest resolution available.
+
+Thanks!</pre>
+        <button class="copy-btn" type="button" onclick="copyTemplate(this)">Copy Template to Clipboard</button>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -946,6 +1072,41 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  function copyTemplate(btn) {
+    const text = document.getElementById('email-template').textContent;
+    const reset = () => setTimeout(() => {
+      btn.textContent = 'Copy Template to Clipboard';
+      btn.classList.remove('copied');
+    }, 2000);
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = '\u2713 Copied!';
+        btn.classList.add('copied');
+        reset();
+      }).catch(() => fallbackCopy(btn, reset));
+    } else {
+      fallbackCopy(btn, reset);
+    }
+  }
+
+  function fallbackCopy(btn, reset) {
+    const range = document.createRange();
+    range.selectNode(document.getElementById('email-template'));
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    try {
+      document.execCommand('copy');
+      btn.textContent = '\u2713 Copied!';
+      btn.classList.add('copied');
+      reset();
+    } catch (e) {
+      alert('Could not copy automatically. Please select and copy the template text manually.');
+    }
+    selection.removeAllRanges();
+  }
 </script>
 
 </body>
