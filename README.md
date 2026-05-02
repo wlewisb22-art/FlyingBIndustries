@@ -40,24 +40,13 @@ When you're ready to add photos of completed orders to the Examples section:
 4. Replace each `<div class="gallery-item">...</div>` block with: `<img src="example-1.jpg" alt="Custom golf ball example" class="gallery-item" style="object-fit:cover;" />`
 5. Save and re-upload.
 
-## Setting up Google Analytics (free visitor tracking)
+## Google Analytics
 
-The site is pre-wired for Google Analytics 4 — you just need to plug in your Measurement ID:
+Google Analytics 4 is already configured with your Measurement ID `G-11YQDNWPYJ`. No setup needed — once your site is live on GitHub Pages, data will start flowing into your Analytics dashboard within 24–48 hours.
 
-1. Go to https://analytics.google.com and sign in with a Google account.
-2. Click **Start measuring** (or if you already have an account: **Admin → Create → Property**).
-3. Enter a property name like "Flying B Industries Website" and click Next.
-4. Fill in the business details, click Next, then **Create**.
-5. Choose **Web** as your platform.
-6. Enter your website URL (e.g., `https://yourusername.github.io`) and a stream name. Click **Create stream**.
-7. Copy your **Measurement ID** — it looks like `G-XXXXXXXXXX` (starts with `G-` followed by 10 characters/numbers).
-8. Open `index.html` in a text editor.
-9. Find the two places that say `G-XXXXXXXXXX` near the top of the file (in the Google Analytics block).
-10. Replace BOTH instances with your actual Measurement ID.
-11. Save and re-upload `index.html` to GitHub.
-12. Wait 24-48 hours for data to appear in your Analytics dashboard.
+To view your stats, go to https://analytics.google.com and sign in with the Google account you used to create the property. You'll see how many people visit, where they're coming from, what country/state, what device they're using, and which sections they look at. All free.
 
-Once it's running, you'll see how many people visit, where they're coming from, what country/state, what device they're using, and which sections they look at. All free.
+If you ever need to swap the ID (for example, if you create a new property), open `index.html`, find the two places that say `G-11YQDNWPYJ` near the top, and replace both.
 
 ## Editing the site
 The whole site is one HTML file. Open `index.html` in any text editor (VS Code is free and great) to change copy, colors, or layout. Push the changes back to GitHub and they go live in seconds.
