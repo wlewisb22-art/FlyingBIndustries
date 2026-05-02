@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Flying B Industries — Custom Golf Balls</title>
+<meta name="description" content="Personalized custom golf balls for tournaments, gifts, weddings, and corporate events. Send us your image, we'll send you a quote." />
+
+<link rel="icon" type="image/png" href="officialFlyingBLogo.png">
+
+<!-- Google Analytics 4 -->
+<!-- IMPORTANT: Replace G-XXXXXXXXXX (in BOTH places below) with your actual Measurement ID from analytics.google.com -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<!-- End Google Analytics -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --cream: #f6f1e6;
+    --cream-deep: #ede5d2;
+    --navy: #1c2a4e;
+    --navy-light: #2c3e6b;
+    --navy-deep: #131c36;
+    --gold: #c9a449;
+    --gold-bright: #e0c177;
+    --gold-soft: #f0dca6;
+    --ink: #15201a;
+    --muted: #5a5a52;
+    --line: #d8cfb8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* NAV */
+  nav {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+    background: var(--cream);
+  }
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: inherit;
+  }
+  .nav-logo img {
+    height: 64px;
+    width: auto;
+    display: block;
+  }
+  .nav-logo-text {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 19px;
+    letter-spacing: 0.01em;
+    color: var(--navy);
+    line-height: 1.1;
+  }
+  .nav-logo-text small {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-top: 3px;
+  }
+  .nav-email {
+    font-size: 14px;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .nav-email:hover { border-color: var(--navy); }
+
+  /* HERO */
+  .hero {
+    padding: 90px 0 110px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 25%;
+    right: -120px;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #ffffff 0%, #e8dfc8 60%, #c9bfa3 100%);
+    box-shadow: 0 30px 80px rgba(28, 42, 78, 0.22);
+    opacity: 0.9;
+    z-index: 0;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 27%;
+    right: -100px;
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    background-image:
+      radial-gradient(circle at 25% 25%, rgba(0,0,0,0.06) 1.5px, transparent 2px),
+      radial-gradient(circle at 75% 35%, rgba(0,0,0,0.06) 1.5px, transparent 2px),
+      radial-gradient(circle at 40% 60%, rgba(0,0,0,0.06) 1.5px, transparent 2px),
+      radial-gradient(circle at 70% 75%, rgba(0,0,0,0.06) 1.5px, transparent 2px),
+      radial-gradient(circle at 20% 80%, rgba(0,0,0,0.06) 1.5px, transparent 2px),
+      radial-gradient(circle at 55% 20%, rgba(0,0,0,0.06) 1.5px, transparent 2px),
+      radial-gradient(circle at 85% 60%, rgba(0,0,0,0.06) 1.5px, transparent 2px);
+    background-size: 60px 60px;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 640px; }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 22px;
+    padding: 6px 14px;
+    border: 1px solid var(--gold);
+    border-radius: 100px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    font-size: clamp(42px, 6vw, 72px);
+    color: var(--navy);
+    margin-bottom: 24px;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 400;
+  }
+  .hero p {
+    font-size: 19px;
+    color: var(--muted);
+    margin-bottom: 38px;
+    max-width: 520px;
+  }
+  .cta-group { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 28px;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary {
+    background: var(--navy);
+    color: var(--cream);
+    border: 1px solid var(--navy);
+  }
+  .btn-primary:hover {
+    background: var(--navy-light);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(28, 42, 78, 0.28);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--navy);
+    border: 1px solid var(--navy);
+  }
+  .btn-secondary:hover { background: var(--navy); color: var(--cream); }
+
+  /* SECTIONS */
+  section { padding: 90px 0; }
+  .section-head { margin-bottom: 60px; max-width: 640px; }
+  .section-num {
+    font-family: 'Fraunces', serif;
+    font-size: 14px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    font-size: clamp(32px, 4vw, 48px);
+    color: var(--navy);
+    margin-bottom: 18px;
+  }
+  h2 em { font-style: italic; color: var(--gold); font-weight: 400; }
+  .section-head p { color: var(--muted); font-size: 18px; }
+
+  /* ABOUT */
+  .about {
+    background: var(--cream);
+    border-bottom: 1px solid var(--line);
+  }
+  .about-body {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+  }
+  .about-body::before {
+    content: '"';
+    font-family: 'Fraunces', serif;
+    font-size: 140px;
+    color: var(--gold);
+    opacity: 0.18;
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 1;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .about-body p {
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 22px;
+    line-height: 1.75;
+    position: relative;
+    z-index: 1;
+  }
+  .about-body p:last-of-type { margin-bottom: 30px; }
+  .about-signoff {
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.6;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .about-signoff strong {
+    display: block;
+    margin-top: 10px;
+    color: var(--navy);
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    font-size: 13px;
+    text-transform: uppercase;
+  }
+
+  /* HOW IT WORKS */
+  .how {
+    background: var(--cream-deep);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  .step {
+    padding: 32px 28px;
+    background: var(--cream);
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    position: relative;
+  }
+  .step-num {
+    font-family: 'Fraunces', serif;
+    font-size: 56px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 18px;
+    font-style: italic;
+  }
+  .step h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    color: var(--navy);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .step p { color: var(--muted); font-size: 15px; }
+
+  /* USE CASES */
+  .uses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .use-card {
+    padding: 28px 24px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--cream);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .use-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-3px);
+  }
+  .use-card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    color: var(--navy);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .use-card p {
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  /* BALL OPTIONS */
+  .options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .option {
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 36px 28px;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .option:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(28, 42, 78, 0.14);
+  }
+  .option-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .option h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    color: var(--navy);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .option p { color: var(--muted); font-size: 15px; }
+
+  /* EXAMPLES (PLACEHOLDER) */
+  .examples {
+    background: var(--cream-deep);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .gallery-item {
+    aspect-ratio: 1 / 1;
+    background: var(--cream);
+    border: 2px dashed var(--line);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    color: var(--muted);
+    transition: border-color 0.2s;
+  }
+  .gallery-item:hover { border-color: var(--gold); }
+  .gallery-item-icon {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .gallery-item-text {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* CHECKLIST */
+  .checklist {
+    background: var(--navy);
+    color: var(--cream);
+    border-radius: 8px;
+    padding: 60px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  .checklist::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, rgba(224, 193, 119, 0.12), transparent 70%);
+    pointer-events: none;
+  }
+  .checklist h2 { color: var(--cream); }
+  .checklist h2 em { color: var(--gold-bright); }
+  .checklist .section-head p { color: rgba(246, 241, 230, 0.75); }
+  .checklist .section-num { color: var(--gold-bright); }
+  .check-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 40px;
+    margin-top: 40px;
+  }
+  .check-list li {
+    padding-left: 36px;
+    position: relative;
+    font-size: 16px;
+    color: rgba(246, 241, 230, 0.92);
+  }
+  .check-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: inset 0 0 0 4px var(--navy);
+  }
+  .check-list strong {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 4px;
+    font-size: 18px;
+  }
+
+  /* IMAGE LAYOUT NOTE */
+  .layout-note {
+    margin-top: 50px;
+    padding: 28px 32px;
+    border: 1px dashed rgba(224, 193, 119, 0.5);
+    border-radius: 6px;
+    background: rgba(0,0,0,0.18);
+  }
+  .layout-note h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    color: var(--gold-bright);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .layout-note p { font-size: 15px; color: rgba(246, 241, 230, 0.85); }
+  .layout-note p + p { margin-top: 8px; }
+
+  /* FAQ */
+  .faq-list { max-width: 780px; margin: 0 auto; }
+  details {
+    border-bottom: 1px solid var(--line);
+    padding: 24px 0;
+  }
+  details:first-of-type { border-top: 1px solid var(--line); }
+  summary {
+    cursor: pointer;
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--navy);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: '+';
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    color: var(--gold);
+    font-weight: 400;
+    transition: transform 0.2s;
+  }
+  details[open] summary::after { content: '−'; }
+  details p {
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* CTA */
+  .cta-section {
+    text-align: center;
+    padding: 110px 0;
+  }
+  .cta-section h2 { margin-bottom: 20px; }
+  .cta-section p {
+    color: var(--muted);
+    font-size: 19px;
+    max-width: 520px;
+    margin: 0 auto 36px;
+  }
+  .email-display {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 28px;
+    color: var(--gold);
+    margin-top: 24px;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 4px;
+  }
+
+  /* PRIVACY */
+  .privacy {
+    background: var(--cream-deep);
+    border-top: 1px solid var(--line);
+  }
+  .privacy-body { max-width: 780px; margin: 0 auto; }
+  .privacy-body p {
+    margin-bottom: 16px;
+    color: var(--ink);
+    font-size: 16px;
+  }
+  .privacy-body p strong { color: var(--navy); }
+  .privacy-body .last-updated {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 24px;
+    font-style: italic;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 40px 0;
+    background: var(--navy-deep);
+    color: var(--cream);
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  footer p { font-size: 14px; color: rgba(246, 241, 230, 0.7); }
+  footer a { color: var(--gold-bright); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .footer-links {
+    display: flex;
+    gap: 22px;
+    font-size: 14px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 820px) {
+    .hero { padding: 60px 0 80px; }
+    .hero::before, .hero::after { display: none; }
+    section { padding: 70px 0; }
+    .steps, .options, .gallery { grid-template-columns: 1fr; gap: 18px; }
+    .uses-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .check-list { grid-template-columns: 1fr; gap: 22px; }
+    .checklist { padding: 44px 28px; }
+    .nav-inner { flex-direction: column; gap: 12px; align-items: flex-start; }
+    .nav-logo img { height: 52px; }
+  }
+  @media (max-width: 480px) {
+    .uses-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="officialFlyingBLogo.png" alt="Flying B Industries" />
+      <div class="nav-logo-text">
+        Flying B Industries
+        <small>Custom Golf Balls</small>
+      </div>
+    </a>
+    <a href="mailto:orders@flyingbindustries.com" class="nav-email">orders@flyingbindustries.com</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <span class="eyebrow">Custom Golf Balls · Made to Order</span>
+      <h1>Your image. <em>Your ball.</em><br/>Your game.</h1>
+      <p>Personalized golf balls for tournaments, weddings, corporate events, gifts, or just because. Tell us what you want — we'll send you a quote.</p>
+      <div class="cta-group">
+        <a href="mailto:orders@flyingbindustries.com?subject=Custom%20Golf%20Ball%20Request" class="btn btn-primary">
+          Request a Quote →
+        </a>
+        <a href="#how" class="btn btn-secondary">How It Works</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="section-head" style="text-align:center; margin: 0 auto 50px;">
+      <div class="section-num">— 01 / About</div>
+      <h2>From one golfer, <em>to another</em>.</h2>
+    </div>
+    <div class="about-body">
+      <p>Hi — I'm the guy behind Flying B Industries. I love golf, and there's something genuinely fun about playing with a ball that's <em>yours</em>. Your dog's face. An inside joke with your buddies. A logo for the next tournament. A photo of someone you miss. It always beats a plain factory ball.</p>
+
+      <p>I started this because I thought it was a blast to have my own custom balls to play with and show off — and I figured plenty of other golfers would feel the same way. Now I make them for funny logos, special events, gifts, memorials, club tournaments, and pretty much anything else you can think of. Whatever your reason, I'm happy to make it happen.</p>
+
+      <p>Every order goes through me personally. I'll answer your questions, send a proof before anything gets printed, and make sure it turns out the way you pictured it. No call center, no portal, no upsells. Just one golfer making custom balls for other golfers — and for anyone who wants to put a smile on a golfer's face.</p>
+
+      <div class="about-signoff">
+        And honestly? Knowing your funny logo might end up in someone else's pocket someday after a wayward drive into the rough — that's part of the fun too.
+        <strong>— Flying B Industries</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">— 02 / The Process</div>
+      <h2>Three steps from <em>idea to tee box</em>.</h2>
+      <p>No forms, no portals, no friction. Just an email.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">i.</div>
+        <h3>Send Your Details</h3>
+        <p>Email us with your image, ball preference, and quantity. The full checklist is below.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">ii.</div>
+        <h3>Get a Custom Quote</h3>
+        <p>We'll review your request and reply with a price tailored to your order.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">iii.</div>
+        <h3>Tee It Up</h3>
+        <p>Approve the quote, we produce your balls, and you're ready to play.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="uses">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">— 03 / Perfect For</div>
+      <h2>For every <em>occasion</em> on the course.</h2>
+      <p>A few ways our customers personalize their game.</p>
+    </div>
+    <div class="uses-grid">
+      <div class="use-card">
+        <h4>Tournaments</h4>
+        <p>Branded balls for charity scrambles, club championships, and corporate outings.</p>
+      </div>
+      <div class="use-card">
+        <h4>Weddings</h4>
+        <p>Wedding favors, groomsmen gifts, and save-the-dates for the golf-loving couple.</p>
+      </div>
+      <div class="use-card">
+        <h4>Corporate Gifts</h4>
+        <p>Logoed balls for clients, employees, conferences, and trade shows.</p>
+      </div>
+      <div class="use-card">
+        <h4>Personal Gifts</h4>
+        <p>Birthdays, Father's Day, retirements, anniversaries, and "just because."</p>
+      </div>
+      <div class="use-card">
+        <h4>Memorials</h4>
+        <p>Commemorative balls honoring a loved one's memory or marking a milestone.</p>
+      </div>
+      <div class="use-card">
+        <h4>Just for Fun</h4>
+        <p>Your face, your dog, your favorite saying. If it's an image, we can print it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="balls" class="how">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">— 04 / Ball Options</div>
+      <h2>Choose your <em>starting canvas</em>.</h2>
+      <p>Three ways to get the ball you want. Tell us which works for you in your email.</p>
+    </div>
+    <div class="options">
+      <div class="option">
+        <span class="option-tag">Option A</span>
+        <h3>Bring Your Own</h3>
+        <p>Already have golf balls you love? Ship them to us and we'll print directly on what you provide.</p>
+      </div>
+      <div class="option">
+        <span class="option-tag">Option B</span>
+        <h3>Specific Brand</h3>
+        <p>Want Titleist Pro V1, Callaway, Bridgestone, or another specific brand? We'll source them for you. Brand cost will be added to your quote.</p>
+      </div>
+      <div class="option">
+        <span class="option-tag">Option C</span>
+        <h3>Kirkland Signature</h3>
+        <p>Costco's Kirkland golf balls are a popular, budget-friendly choice that perform well. Our default option if you're flexible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="checklist">
+  <div class="container">
+    <div class="checklist">
+      <div class="section-head">
+        <div class="section-num">— 05 / Email Checklist</div>
+        <h2>What to <em>include in your email</em>.</h2>
+        <p>The more detail you give us up front, the faster we can get you an accurate quote.</p>
+      </div>
+      <ul class="check-list">
+        <li>
+          <strong>Total Quantity</strong>
+          How many balls in total do you need produced?
+        </li>
+        <li>
+          <strong>Ball Preference</strong>
+          Option A, B, or C above. If Option B, tell us the exact brand and model.
+        </li>
+        <li>
+          <strong>Your Image(s)</strong>
+          Attach as PNG or JPG, highest resolution available. Transparent background preferred for logos.
+        </li>
+        <li>
+          <strong>Layout (if multiple images)</strong>
+          See note below on how to specify multi-image orders.
+        </li>
+        <li>
+          <strong>Deadline</strong>
+          When do you need them by? Helpful for events, tournaments, or gifts.
+        </li>
+        <li>
+          <strong>Shipping Address</strong>
+          Where should we send the finished balls?
+        </li>
+        <li>
+          <strong>Your Name & Phone</strong>
+          So we can follow up quickly with questions.
+        </li>
+        <li>
+          <strong>Occasion (Optional)</strong>
+          Wedding, corporate event, tournament, gift — context helps.
+        </li>
+      </ul>
+
+      <div class="layout-note">
+        <h4>Sending more than one image?</h4>
+        <p>Please tell us which layout you want:</p>
+        <p><strong style="color:var(--gold-bright)">Option 1:</strong> Two images on opposite sides of the same ball.</p>
+        <p><strong style="color:var(--gold-bright)">Option 2:</strong> Different images on different balls — in this case, tell us how many balls you want for each image (e.g., 12 with Image A, 12 with Image B).</p>
+      </div>
+
+      <div class="layout-note" style="border-color: rgba(224, 193, 119, 0.35);">
+        <h4>A quick note on artwork rights</h4>
+        <p>Please only send images you own or have permission to use. We can't reproduce copyrighted characters, sports team logos, or trademarked artwork without proof of authorization.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="examples" id="examples">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">— 06 / Examples</div>
+      <h2>A look at <em>past work</em>.</h2>
+      <p>Photos from real orders coming soon. Check back, or email us to see current samples.</p>
+    </div>
+    <div class="gallery">
+      <div class="gallery-item">
+        <div class="gallery-item-icon">i.</div>
+        <div class="gallery-item-text">Sample coming soon</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-item-icon">ii.</div>
+        <div class="gallery-item-text">Sample coming soon</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-item-icon">iii.</div>
+        <div class="gallery-item-text">Sample coming soon</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-item-icon">iv.</div>
+        <div class="gallery-item-text">Sample coming soon</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-item-icon">v.</div>
+        <div class="gallery-item-text">Sample coming soon</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-item-icon">vi.</div>
+        <div class="gallery-item-text">Sample coming soon</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">— 07 / Common Questions</div>
+      <h2>Things people <em>ask us</em>.</h2>
+      <p>Don't see your question here? Email us — we're happy to help.</p>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>How long does it take to get my golf balls?</summary>
+        <p>Turnaround depends on the size of your order, the ball option you choose, and our current production schedule. We'll give you a realistic timeline along with your quote. If you have a hard deadline (event, gift date, tournament), let us know in your email so we can confirm we can hit it.</p>
+      </details>
+      <details>
+        <summary>Will I see a proof before you print?</summary>
+        <p>Yes — for most orders we'll send you a digital mockup of how your image will look on the ball before we produce anything. You'll have a chance to approve or request adjustments before we move forward.</p>
+      </details>
+      <details>
+        <summary>Is there a minimum order?</summary>
+        <p>Reach out with the quantity you have in mind and we'll let you know what works. Smaller orders are welcome — we'll just price them accordingly.</p>
+      </details>
+      <details>
+        <summary>What kind of image works best?</summary>
+        <p>High-resolution PNG or JPG files produce the best results. For logos and graphics, a PNG with a transparent background is ideal. For photos, the higher the resolution the better. If you're unsure whether your image will work well, send it over and we'll take a look.</p>
+      </details>
+      <details>
+        <summary>Can you print copyrighted or trademarked images?</summary>
+        <p>Only with proof of authorization. We can't reproduce things like sports team logos, cartoon characters, or other trademarked artwork without permission from the rights holder. Your own logos, photos, and original artwork are no problem.</p>
+      </details>
+      <details>
+        <summary>How do I pay?</summary>
+        <p>Payment details will be included with your quote. We'll walk you through the process once you decide to move forward — no payment needed just to get a quote.</p>
+      </details>
+      <details>
+        <summary>Can I reorder later?</summary>
+        <p>Absolutely. We keep records of your order so reorders are simple — just email us and reference your previous order.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <div class="section-num">— Ready When You Are</div>
+    <h2>Send us your <em>request</em>.</h2>
+    <p>We'll review the details and reply with a custom quote. No commitment until you approve.</p>
+    <a href="mailto:orders@flyingbindustries.com?subject=Custom%20Golf%20Ball%20Request&body=Hi%2C%0A%0AI'd%20like%20a%20quote%20for%20custom%20golf%20balls.%0A%0ATotal%20quantity%3A%0ABall%20preference%20(A%2FB%2FC)%3A%0ADeadline%3A%0AShipping%20address%3A%0AName%20%26%20phone%3A%0A%0A%5BAttach%20your%20image(s)%20to%20this%20email%5D%0A%0AThanks!" class="btn btn-primary">
+      Email orders@flyingbindustries.com →
+    </a>
+    <div>
+      <a href="mailto:orders@flyingbindustries.com" class="email-display">orders@flyingbindustries.com</a>
+    </div>
+  </div>
+</section>
+
+<section class="privacy" id="privacy">
+  <div class="container">
+    <div class="section-head" style="text-align:center; margin: 0 auto 50px;">
+      <div class="section-num">— Your Privacy</div>
+      <h2>How we <em>handle your information</em>.</h2>
+    </div>
+    <div class="privacy-body">
+      <p><strong>What we collect.</strong> When you email us a request, we receive whatever you choose to send — typically your name, email address, phone number, shipping address, the images you want printed, and details about your order.</p>
+
+      <p><strong>What we use it for.</strong> We use your information for one purpose only: producing and delivering your custom golf balls and communicating with you about your order. That's it.</p>
+
+      <p><strong>What we don't do.</strong> We do not sell, rent, trade, or share your information with any third parties. We do not add you to marketing lists. We do not send promotional emails or advertisements. We do not use your contact information to follow up with offers, and we do not share your images or order details with anyone outside of fulfilling your specific order.</p>
+
+      <p><strong>Your images.</strong> The artwork and photos you send remain yours. We use them only to produce your order. We do not display, share, or reuse your images for marketing or any other purpose without your explicit permission.</p>
+
+      <p><strong>Records.</strong> We keep order records so we can support reorders, address any quality concerns, and meet basic business and tax requirements. If you ever want your information removed from our records, just email us and we'll take care of it.</p>
+
+      <p><strong>Service providers.</strong> The only third parties involved in your order are the ones required to fulfill it — for example, our shipping carrier, or, if you choose Option B, the brand we source your balls from. They receive only the information needed to do their part (like a shipping address) and nothing more.</p>
+
+      <p><strong>Questions.</strong> If you have any questions about how we handle your information, just ask: <a href="mailto:orders@flyingbindustries.com" style="color:var(--navy);text-decoration:underline;">orders@flyingbindustries.com</a></p>
+
+      <p class="last-updated">This policy may be updated from time to time. Significant changes will be reflected here.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <p>© <span id="year"></span> Flying B Industries. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#privacy">Privacy</a>
+      <a href="mailto:orders@flyingbindustries.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
