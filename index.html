@@ -26,6 +26,139 @@
 <!-- Theme color (used by mobile browsers, Safari pinned tabs) -->
 <meta name="theme-color" content="#1c2a4e" />
 
+<!-- Canonical URL — tells search engines this is the preferred URL for this page -->
+<link rel="canonical" href="https://flyingbindustries.com/" />
+
+<!-- Search engines: instructions for crawling and indexing -->
+<meta name="robots" content="index, follow, max-image-preview:large" />
+
+<!-- Keywords for completeness (low SEO value but harmless) -->
+<meta name="keywords" content="custom golf balls, personalized golf balls, custom printed golf balls, wedding favor golf balls, tournament golf balls, corporate logo golf balls, memorial golf balls, pet portrait golf balls, golf gifts" />
+
+<!-- Author / Publisher signal -->
+<meta name="author" content="Flying B Industries" />
+
+<!-- ===== STRUCTURED DATA (JSON-LD) =====
+     Tells Google explicitly: who you are, what you do, your logo, your service areas.
+     This is what causes your logo to appear in search results instead of a generic icon,
+     and helps Google build a Knowledge Panel for your business.
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://flyingbindustries.com/#organization",
+      "name": "Flying B Industries",
+      "alternateName": "Flying B",
+      "url": "https://flyingbindustries.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://flyingbindustries.com/officialFlyingBLogo.png",
+        "width": 1024,
+        "height": 1024
+      },
+      "image": "https://flyingbindustries.com/officialFlyingBLogo.png",
+      "description": "Flying B Industries makes custom-printed golf balls for tournaments, weddings, corporate events, gifts, and memorials. Personally handled, no minimum order, made by a fellow golfer.",
+      "email": "orders@flyingbindustries.com",
+      "slogan": "Your image. Your ball. Your game."
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://flyingbindustries.com/#business",
+      "name": "Flying B Industries",
+      "url": "https://flyingbindustries.com/",
+      "image": "https://flyingbindustries.com/officialFlyingBLogo.png",
+      "logo": "https://flyingbindustries.com/officialFlyingBLogo.png",
+      "description": "Custom-printed golf balls for any occasion — tournaments, weddings, corporate events, gifts, memorials, and just-for-fun designs. One golfer making personalized balls for other golfers.",
+      "email": "orders@flyingbindustries.com",
+      "priceRange": "$$",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "knowsAbout": [
+        "Custom Golf Balls",
+        "Personalized Golf Balls",
+        "Tournament Logo Printing",
+        "Wedding Favor Golf Balls",
+        "Corporate Promotional Products",
+        "Memorial Golf Balls",
+        "Pet Portrait Golf Balls",
+        "Golf Gifts"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://flyingbindustries.com/#website",
+      "url": "https://flyingbindustries.com/",
+      "name": "Flying B Industries — Custom Golf Balls",
+      "description": "Personalized golf balls for tournaments, weddings, gifts, and special events.",
+      "publisher": {
+        "@id": "https://flyingbindustries.com/#organization"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Service",
+      "name": "Custom Golf Ball Printing",
+      "provider": {
+        "@id": "https://flyingbindustries.com/#organization"
+      },
+      "description": "Print custom logos, photos, monograms, and designs onto golf balls. Bring your own balls, request a specific brand (Titleist, Callaway, Bridgestone), or use Costco Kirkland Signature.",
+      "areaServed": "United States",
+      "serviceType": "Custom Printing"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long does it take to get my golf balls?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Turnaround depends on order size, ball option, and current production schedule. We'll provide a realistic timeline with your quote. If you have a hard deadline (event, tournament, gift date), let us know in your email."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will I see a proof before you print?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — for most orders we send a digital mockup of how your image will look on the ball before we produce anything. You'll have a chance to approve or request adjustments before we move forward."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a minimum order?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No — there's no minimum. Reach out with the quantity you have in mind and we'll let you know what works. Smaller orders are welcome — we'll just price them accordingly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What kind of image works best for custom golf balls?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "High-resolution PNG or JPG files produce the best results. For logos and graphics, a PNG with a transparent background is ideal. For photos, the higher the resolution the better."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you print copyrighted or trademarked images?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only with proof of authorization. We can't reproduce sports team logos, cartoon characters, or other trademarked artwork without permission from the rights holder. Your own logos, photos, and original artwork are no problem."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 <link rel="icon" type="image/png" href="officialFlyingBLogo.png">
 
 <!-- Google Analytics 4 -->
@@ -1207,7 +1340,7 @@
     <div class="gallery">
       <div class="gallery-item">
         <div class="gallery-photo">
-          <img src="Wedding_Favors.png" alt="Custom golf ball with monogrammed wedding favor design featuring A & B initials and a date" loading="lazy" />
+          <img src="Wedding_Favors.png" alt="Custom personalized wedding favor golf ball with monogrammed initials and wedding date" loading="lazy" />
         </div>
         <div class="gallery-caption">
           <h4>Wedding Favors</h4>
@@ -1217,7 +1350,7 @@
 
       <div class="gallery-item">
         <div class="gallery-photo">
-          <img src="Tournament_Logos.png" alt="Custom golf ball with Charity Classic 2026 tournament shield logo" loading="lazy" />
+          <img src="Tournament_Logos.png" alt="Custom golf tournament logo printed on a golf ball with shield design and event date" loading="lazy" />
         </div>
         <div class="gallery-caption">
           <h4>Tournament Logos</h4>
@@ -1227,7 +1360,7 @@
 
       <div class="gallery-item">
         <div class="gallery-photo">
-          <img src="Corporate_Branding.png" alt="Custom golf ball with Blue Ridge Advisors corporate branding" loading="lazy" />
+          <img src="Corporate_Branding.png" alt="Custom corporate logo golf ball for promotional gifts and company branding" loading="lazy" />
         </div>
         <div class="gallery-caption">
           <h4>Corporate Branding</h4>
@@ -1237,7 +1370,7 @@
 
       <div class="gallery-item">
         <div class="gallery-photo">
-          <img src="Pet_Portraits.png" alt="Custom golf ball featuring a golden retriever pet portrait named Max" loading="lazy" />
+          <img src="Pet_Portraits.png" alt="Custom golf ball with personalized pet portrait of a golden retriever" loading="lazy" />
         </div>
         <div class="gallery-caption">
           <h4>Pet Portraits</h4>
@@ -1247,7 +1380,7 @@
 
       <div class="gallery-item">
         <div class="gallery-photo">
-          <img src="Memorial_Balls.png" alt="Custom memorial golf ball with In Loving Memory inscription and laurel wreath" loading="lazy" />
+          <img src="Memorial_Balls.png" alt="Custom memorial golf ball with In Loving Memory inscription and laurel wreath design" loading="lazy" />
         </div>
         <div class="gallery-caption">
           <h4>Memorial Balls</h4>
@@ -1257,7 +1390,7 @@
 
       <div class="gallery-item">
         <div class="gallery-photo">
-          <img src="Just_for_Fun.png" alt="Custom golf ball with cartoon character and Nice Shot... Probably text" loading="lazy" />
+          <img src="Just_for_Fun.png" alt="Custom funny golf ball with cartoon character design and humorous text" loading="lazy" />
         </div>
         <div class="gallery-caption">
           <h4>Just for Fun</h4>

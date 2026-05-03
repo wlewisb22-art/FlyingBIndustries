@@ -1,2 +1,8 @@
+# Flying B Industries
+# All search engines and crawlers are welcome to index this site.
+
 User-agent: *
 Allow: /
+
+# Sitemap location (optional but conventional)
+Sitemap: https://flyingbindustries.com/sitemap.xml
