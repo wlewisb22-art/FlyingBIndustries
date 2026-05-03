@@ -1414,6 +1414,17 @@ Thanks!</pre>
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  /* ===== ANALYTICS HELPER ===== */
+  // Wrapper that no-ops gracefully if gtag isn't loaded (ad blockers, GA outage, etc.)
+  function track(eventName, params) {
+    if (typeof gtag !== 'function') return;
+    try {
+      gtag('event', eventName, params || {});
+    } catch (e) {
+      console.warn('Analytics event failed:', e);
+    }
+  }
+
   /* ===== QR CODE VISITOR DETECTION =====
      Triggers when URL has ?qr=... parameter (from QR codes printed on golf balls).
      Examples:
@@ -1442,6 +1453,14 @@ Thanks!</pre>
     } catch (e) { /* old browsers — non-fatal */ }
 
     const ballId = (qr === '1' || qr.toLowerCase() === 'true') ? null : qr;
+
+    // ANALYTICS: Track this as a QR-driven visit.
+    // event_label captures the specific ball ID, or 'generic' for ?qr=1 type codes.
+    track('qr_visit', {
+      event_category: 'qr',
+      event_label: ballId || 'generic',
+      has_ball_id: !!ballId
+    });
 
     // 1. Show the banner.
     document.body.classList.add('qr-visitor');
@@ -1532,6 +1551,7 @@ Thanks!</pre>
 
   function dismissQrBanner() {
     document.body.classList.remove('qr-visitor');
+    track('qr_banner_dismissed', { event_category: 'qr' });
   }
 
   function copyTemplate(btn) {
@@ -1546,6 +1566,10 @@ Thanks!</pre>
         btn.textContent = '\u2713 Copied!';
         btn.classList.add('copied');
         reset();
+        track('template_copy', {
+          event_category: 'lead',
+          is_qr_visitor: document.body.classList.contains('qr-visitor')
+        });
       }).catch(() => fallbackCopy(btn, reset));
     } else {
       fallbackCopy(btn, reset);
@@ -1563,11 +1587,58 @@ Thanks!</pre>
       btn.textContent = '\u2713 Copied!';
       btn.classList.add('copied');
       reset();
+      track('template_copy', {
+        event_category: 'lead',
+        is_qr_visitor: document.body.classList.contains('qr-visitor')
+      });
     } catch (e) {
       alert('Could not copy automatically. Please select and copy the template text manually.');
     }
     selection.removeAllRanges();
   }
+
+  /* ===== ANALYTICS: QUOTE REQUEST CLICK TRACKING =====
+     Fires whenever any mailto: link to orders@flyingbindustries.com is clicked.
+     Identifies WHICH link was clicked (CTA button, footer, QR banner, etc.) so
+     you can see in GA4 which call-to-action drives the most leads, and whether
+     QR-arriving visitors convert at higher rates than regular visitors.
+  */
+  document.querySelectorAll('a[href^="mailto:orders@flyingbindustries.com"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      // Categorize the link by where it sits on the page.
+      let location = 'other';
+      if (link.classList.contains('btn-primary'))         location = 'cta_button';
+      else if (link.id === 'qr-tell-link')                location = 'qr_banner';
+      else if (link.classList.contains('email-display'))  location = 'cta_email_text';
+      else if (link.closest('footer'))                    location = 'footer';
+      else if (link.closest('.privacy-body'))             location = 'privacy_section';
+
+      track('quote_request_click', {
+        event_category: 'lead',
+        event_label: location,
+        is_qr_visitor: document.body.classList.contains('qr-visitor')
+      });
+    });
+  });
+
+  /* ===== ANALYTICS: FAQ ENGAGEMENT TRACKING =====
+     Fires when a customer expands an FAQ question. Tells you which questions
+     visitors care about most — useful for spotting gaps to address proactively
+     on the page (e.g., if "How do I pay?" is the most-opened FAQ, you might
+     want to surface payment info higher up).
+  */
+  document.querySelectorAll('#faq details').forEach(function(d) {
+    d.addEventListener('toggle', function() {
+      if (!d.open) return; // Only track opens, not closes
+      const summary = d.querySelector('summary');
+      const question = summary ? summary.textContent.trim() : 'unknown';
+      track('faq_open', {
+        event_category: 'engagement',
+        event_label: question,
+        is_qr_visitor: document.body.classList.contains('qr-visitor')
+      });
+    });
+  });
 </script>
 
 </body>

@@ -49,6 +49,53 @@ To view your stats, go to https://analytics.google.com and sign in with the Goog
 
 If you ever need to swap the ID (for example, if you create a new property), open `index.html`, find the two places that say `G-11YQDNWPYJ` near the top, and replace both.
 
+### Custom events being tracked
+
+Beyond basic page-view tracking, the site fires custom events for high-value visitor actions. Find them in GA4 under **Reports → Engagement → Events**.
+
+| Event | Fires when… | What you learn |
+|---|---|---|
+| `quote_request_click` | Someone clicks any email link to orders@flyingbindustries.com | How many people are reaching out, which button drove the click (CTA, footer, QR banner, etc.), and whether they were a QR visitor |
+| `template_copy` | Someone clicks "Copy Template to Clipboard" in the fallback section | Strong intent signal — people who use the manual fallback are usually committed to emailing |
+| `qr_visit` | Someone arrives via a `?qr=...` URL (a QR-code scan) | Total QR scans driving traffic; once you use unique ball IDs, you'll see which specific balls get found |
+| `qr_banner_dismissed` | Someone clicks the × on the QR welcome banner | How many QR visitors aren't interested vs. engaged |
+| `faq_open` | Someone expands an FAQ question | Which questions matter most to your visitors — useful for spotting gaps to address on the page |
+
+Each event includes useful properties:
+- `event_label` — distinguishes specific buttons, ball IDs, or questions
+- `is_qr_visitor` — whether the person arrived via a QR scan (lets you compare conversion rates between QR-driven traffic and regular visitors)
+
+### Marking events as conversions (recommended)
+
+Custom events are tracked but don't count as "conversions" until you tell GA4 they should. To make `quote_request_click` and `template_copy` show up in conversion reports:
+
+1. Wait until at least one real click has happened on your site (so the event appears in GA's list).
+2. Go to GA4 → **Admin → Events** (in the property column).
+3. Find `quote_request_click` in the list and toggle **Mark as conversion** to On.
+4. Repeat for `template_copy`.
+
+Once marked, GA4 will calculate your conversion rate (clicks ÷ visitors) automatically and show it in standard reports.
+
+### Useful reports to check
+
+Once data is flowing (24–48 hours after launch):
+
+- **Reports → Engagement → Events** — total counts of every event above
+- **Reports → Acquisition → Traffic acquisition** — where visitors come from (Google search, direct, social, QR codes)
+- **Reports → Tech → Browser & Device** — mobile vs. desktop split
+- **Realtime report** — see visitors and events as they happen, useful when testing
+
+### Testing your analytics
+
+To confirm events are firing without waiting 24 hours for the regular reports:
+
+1. Open your site in one tab.
+2. In another tab, open GA4 → **Reports → Realtime**.
+3. On your site, click an email button or open an FAQ.
+4. Within ~30 seconds, you'll see the event appear in the Realtime "Event count by Event name" widget.
+
+If nothing appears, check that your Measurement ID is correct in `index.html` and that your browser doesn't have an ad blocker enabled.
+
 ## QR Codes for Golf Balls
 
 The site recognizes visitors who arrive after scanning a QR code printed on one of your golf balls. They get a friendly welcome banner at the top, a different hero greeting, and the email templates automatically include a "where did you find it" section.
