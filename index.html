@@ -131,6 +131,22 @@
         },
         {
           "@type": "Question",
+          "name": "How is pricing determined?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Quotes are based on quantity, ball choice (your own balls, a specific brand we source, or budget-friendly Kirkland), artwork complexity, and shipping. There's no minimum order. You'll always see the full price before committing, and there are no hidden fees added later."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I return or refund a custom order?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because every order is custom-made, approved orders are generally not returnable — the proof-approval step protects you. However, if there's a production error, a quality issue, or the finished balls don't match the proof you approved, we'll make it right with a repair, replacement, or refund as appropriate."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Is there a minimum order?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -993,6 +1009,97 @@
     font-style: italic;
   }
 
+  /* POLICY (returns + proofs) */
+  .policy {
+    background: var(--cream);
+    border-top: 1px solid var(--line);
+  }
+  .policy-body {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .policy-card {
+    background: var(--cream-deep);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--gold);
+    border-radius: 6px;
+    padding: 28px 32px;
+    margin-bottom: 18px;
+  }
+  .policy-card:last-child { margin-bottom: 0; }
+  .policy-card h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .policy-card p {
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+  .policy-card p + p { margin-top: 12px; }
+
+  /* TERMS & ADDITIONAL POLICIES (collapsible) */
+  .terms-intro {
+    text-align: center;
+    color: var(--muted);
+    font-size: 15px;
+    margin: 50px auto 26px;
+    max-width: 620px;
+    font-style: italic;
+  }
+  .terms-list {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .terms-list details {
+    background: var(--cream-deep);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--line);
+    border-radius: 6px;
+    padding: 0;
+    margin-bottom: 10px;
+    transition: border-left-color 0.2s;
+  }
+  .terms-list details[open] {
+    border-left-color: var(--gold);
+  }
+  .terms-list summary {
+    cursor: pointer;
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--navy);
+    padding: 18px 24px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .terms-list summary::-webkit-details-marker { display: none; }
+  .terms-list summary::after {
+    content: '+';
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    color: var(--gold);
+    font-weight: 400;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+  .terms-list details[open] summary::after { content: '−'; }
+  .terms-list details > div {
+    padding: 0 24px 22px;
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .terms-list details > div p { margin-bottom: 12px; }
+  .terms-list details > div p:last-child { margin-bottom: 0; }
+
   /* FOOTER */
   footer {
     border-top: 1px solid var(--line);
@@ -1326,6 +1433,12 @@
         <h4>A quick note on artwork rights</h4>
         <p>Please only send images you own or have permission to use. We can't reproduce copyrighted characters, sports team logos, or trademarked artwork without proof of authorization.</p>
       </div>
+
+      <div class="layout-note" style="border-color: rgba(224, 193, 119, 0.35);">
+        <h4>How pricing works</h4>
+        <p>Quotes are based on quantity, ball choice (your own / specific brand / Kirkland), artwork complexity, and shipping. There's no minimum order — we'll price small orders accordingly. You'll always see the full price before you commit, and we'll never add hidden fees later.</p>
+        <p style="margin-top:10px;font-size:14px;opacity:0.9;"><em>Sales tax is collected on orders shipped within Georgia, as required by state law. Out-of-state orders are not currently subject to sales tax.</em></p>
+      </div>
     </div>
   </div>
 </section>
@@ -1418,6 +1531,14 @@
         <p>Yes — for most orders we'll send you a digital mockup of how your image will look on the ball before we produce anything. You'll have a chance to approve or request adjustments before we move forward.</p>
       </details>
       <details>
+        <summary>How is pricing determined?</summary>
+        <p>Quotes are based on quantity, ball choice (your own balls, a specific brand we source, or budget-friendly Kirkland), artwork complexity, and shipping. There's no minimum order — we'll price small orders accordingly. You'll always see the full price before committing, and there are no hidden fees added later.</p>
+      </details>
+      <details>
+        <summary>Can I return or refund a custom order?</summary>
+        <p>Because every order is custom-made, approved orders are generally not returnable — the proof-approval step is what protects you, since once you've signed off on the design, we begin printing on materials that can't be repurposed. That said, if there's a production error, a quality issue, or the finished balls don't match the proof you approved, contact us and we'll make it right — repair, replacement, or refund as appropriate.</p>
+      </details>
+      <details>
         <summary>Is there a minimum order?</summary>
         <p>Reach out with the quantity you have in mind and we'll let you know what works. Smaller orders are welcome — we'll just price them accordingly.</p>
       </details>
@@ -1508,6 +1629,107 @@ Thanks!</pre>
   </div>
 </section>
 
+<section class="policy" id="policies">
+  <div class="container">
+    <div class="section-head" style="text-align:center; margin: 0 auto 50px;">
+      <div class="section-num">— Policies & Terms</div>
+      <h2>Proofs, returns, and <em>peace of mind</em>.</h2>
+    </div>
+    <div class="policy-body">
+      <div class="policy-card">
+        <h3>Digital Proof Before Production</h3>
+        <p>Before we print anything, we send you a digital mockup showing exactly how your image will appear on the ball. Nothing goes into production until you approve the layout. If something doesn't look right, just say so — we'll adjust until it does.</p>
+      </div>
+      <div class="policy-card">
+        <h3>Returns on Custom Orders</h3>
+        <p>Because every order is custom-made, approved orders are generally not returnable. The proof-approval step is what protects you here — once you've signed off on the design, we begin printing on materials that can't be repurposed for anyone else.</p>
+        <p>That said, we stand behind our work. If there's a production error, a quality issue, or the finished balls don't match the proof you approved, contact us and we'll make it right — repair, replacement, or refund as appropriate to the situation.</p>
+      </div>
+      <div class="policy-card">
+        <h3>Order Changes & Cancellations</h3>
+        <p>Need to change quantity, swap an image, or cancel? Reach out as soon as possible. Changes and cancellations are usually possible before you approve the proof — once production begins, options are more limited.</p>
+      </div>
+    </div>
+
+    <p class="terms-intro">Additional terms covering shipping, color accuracy, image quality, and the legal small print. Tap any item to expand.</p>
+
+    <div class="terms-list">
+      <details>
+        <summary>Shipping & Delivery</summary>
+        <div>
+          <p>We ship throughout the United States. Once your order is shipped, you'll receive a tracking number by email. Standard shipping is via USPS or UPS, with the carrier chosen based on package size and your location.</p>
+          <p>Delivery times vary by carrier and destination, typically 3–7 business days within the continental US after shipping. Expedited options are available — let us know if you have a hard deadline and we'll work something out.</p>
+          <p>If a package is lost or damaged in transit, we'll work with you and the carrier to resolve it (file claims, replace the order if confirmed lost, etc.). International orders are by request only — please contact us before placing one.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Color & Proof Accuracy</summary>
+        <div>
+          <p>Colors may appear slightly different on the printed ball than they do on your screen. This is due to monitor calibration, the printing process, and the way ink interacts with the ball's surface. The digital proof we send is the closest representation of how the final product will look.</p>
+          <p>If exact color matching is critical for your project (for example, matching a specific corporate brand color), let us know in your initial email so we can discuss whether we can accommodate it.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Image Quality & Resolution</summary>
+        <div>
+          <p>The print quality of your finished balls depends entirely on the quality of the image you provide. Low-resolution, blurry, or pixelated source files will produce low-resolution, blurry, or pixelated prints — there's no way to add detail that wasn't there to begin with.</p>
+          <p>For best results: send the highest-resolution PNG or JPG you have. For logos and graphics, vector files (SVG, AI, EPS) or PNGs with transparent backgrounds are ideal. For photos, original camera or phone files are better than screenshots or images saved from social media.</p>
+          <p>If we have concerns about whether your file will produce a good result, we'll let you know before sending the proof so you have a chance to provide a better version.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Damaged Shipments</summary>
+        <div>
+          <p>If your shipment arrives visibly damaged, please contact us within 7 days of delivery with photos of the packaging and the damaged contents. This helps us file a claim with the carrier and arrange a replacement quickly.</p>
+          <p>Reports made after 7 days are harder to resolve because most carriers require timely claims, but we'll always do our best to help.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Limitation of Liability</summary>
+        <div>
+          <p>In the event of a quality issue, production error, or other problem with your order, our maximum liability is the total amount you paid for the affected portion of the order.</p>
+          <p>Flying B Industries is not responsible for indirect, incidental, or consequential damages — for example, costs related to events, gifts, or other purposes the balls were intended for. We do everything we can to deliver on time and as expected, but ultimately the balls themselves are what we're responsible for.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Right to Decline Orders</summary>
+        <div>
+          <p>We reserve the right to decline any order for any reason, including but not limited to: requests involving copyrighted or trademarked content without proper authorization, content we consider offensive or inappropriate, files we cannot produce to our quality standards, or requests we're unable to fulfill on the requested timeline.</p>
+          <p>If we decline an order, we'll let you know promptly and refund any payment that's already been made.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Production Delays & Force Majeure</summary>
+        <div>
+          <p>Most orders ship on schedule, but production timelines can occasionally be affected by factors outside our control: ball availability from suppliers (especially for Option B specific-brand orders), shipping carrier delays, weather events, equipment issues, or other unforeseen circumstances.</p>
+          <p>If a delay affects your order, we'll communicate as soon as we're aware. For time-sensitive orders, please share your deadline up front so we can confirm whether we can meet it before you commit.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Cookies & Analytics</summary>
+        <div>
+          <p>This website uses Google Analytics to understand how visitors find and use the site. Google Analytics sets cookies that collect anonymous usage data — pages viewed, approximate location, device and browser type, and how visitors interact with the page.</p>
+          <p>No personally identifying information is collected through analytics. We use this data only to improve the site and decide which features are working. You can opt out of Google Analytics tracking using the official Google opt-out browser add-on if you prefer.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Governing Law</summary>
+        <div>
+          <p>These terms and any orders placed with Flying B Industries are governed by the laws of the State of Georgia, United States. Any disputes will be resolved in Paulding County, Georgia, and both parties agree to that jurisdiction.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <section class="privacy" id="privacy">
   <div class="container">
     <div class="section-head" style="text-align:center; margin: 0 auto 50px;">
@@ -1538,6 +1760,7 @@ Thanks!</pre>
   <div class="container footer-inner">
     <p>© <span id="year"></span> Flying B Industries. All rights reserved.</p>
     <div class="footer-links">
+      <a href="#policies">Policies</a>
       <a href="#privacy">Privacy</a>
       <a href="mailto:orders@flyingbindustries.com">Contact</a>
     </div>
