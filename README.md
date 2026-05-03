@@ -5,8 +5,9 @@ Landing page for Flying B Industries' custom golf ball ordering service.
 ## Files in this site
 - `index.html` — the website
 - `officialFlyingBLogo.png` — the logo (referenced in nav and as favicon)
+- `Wedding_Favors.png`, `Tournament_Logos.png`, `Corporate_Branding.png`, `Pet_Portraits.png`, `Memorial_Balls.png`, `Just_for_Fun.png` — gallery sample images
 
-**Important:** You need to upload BOTH files to GitHub for the site to work properly. The logo file must be in the same folder as `index.html`.
+**Important:** You need to upload ALL of these files to GitHub for the site to work. Image files must be in the same folder as `index.html`.
 
 ## Putting this on GitHub Pages (free hosting)
 
@@ -32,13 +33,13 @@ If you buy a domain like `flyingbindustries.com`:
 2. At your domain registrar, add a CNAME record pointing to `yourusername.github.io`.
 3. Enable "Enforce HTTPS" once it's available.
 
-## Adding example photos later
-When you're ready to add photos of completed orders to the Examples section:
-1. Take/save photos as JPG or PNG (square crops look best).
-2. Upload them to the same folder as `index.html` (e.g., `example-1.jpg`, `example-2.jpg`).
-3. Open `index.html` and find the section that starts `<section class="examples"`.
-4. Replace each `<div class="gallery-item">...</div>` block with: `<img src="example-1.jpg" alt="Custom golf ball example" class="gallery-item" style="object-fit:cover;" />`
-5. Save and re-upload.
+## Adding or swapping example photos
+The gallery now displays six sample photos. To add or replace images:
+
+1. Save your new photo as JPG or PNG (square crops look best — about 1000×1000px is plenty).
+2. Upload it to the same folder as `index.html` in your GitHub repo.
+3. To **swap** an existing image: name your new file the same as the one you're replacing (e.g., `Wedding_Favors.png`). GitHub will overwrite it.
+4. To **add a 7th category**: open `index.html`, find the gallery section, and copy one of the existing `<div class="gallery-item">...</div>` blocks. Update the `src=`, `alt=`, `<h4>`, and `<p>` to match your new image.
 
 ## Google Analytics
 
