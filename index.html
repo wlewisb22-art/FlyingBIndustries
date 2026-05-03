@@ -6,6 +6,26 @@
 <title>Flying B Industries — Custom Golf Balls</title>
 <meta name="description" content="Personalized custom golf balls for tournaments, gifts, weddings, and corporate events. Send us your image, we'll send you a quote." />
 
+<!-- Open Graph (Facebook, iMessage, LinkedIn, WhatsApp, Slack, etc.) -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Flying B Industries" />
+<meta property="og:title" content="Flying B Industries — Custom Golf Balls" />
+<meta property="og:description" content="Your image. Your ball. Your game. Personalized golf balls for tournaments, weddings, gifts, and special events — made by a fellow golfer." />
+<meta property="og:url" content="https://flyingbindustries.com" />
+<meta property="og:image" content="https://flyingbindustries.com/officialFlyingBLogo.png" />
+<meta property="og:image:alt" content="Flying B Industries logo" />
+<meta property="og:image:width" content="1024" />
+<meta property="og:image:height" content="1024" />
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Flying B Industries — Custom Golf Balls" />
+<meta name="twitter:description" content="Your image. Your ball. Your game. Personalized golf balls made by a fellow golfer." />
+<meta name="twitter:image" content="https://flyingbindustries.com/officialFlyingBLogo.png" />
+
+<!-- Theme color (used by mobile browsers, Safari pinned tabs) -->
+<meta name="theme-color" content="#1c2a4e" />
+
 <link rel="icon" type="image/png" href="officialFlyingBLogo.png">
 
 <!-- Google Analytics 4 -->
@@ -173,40 +193,76 @@
     position: relative;
     overflow: hidden;
   }
-  .hero::before {
-    content: '';
+  .hero-ball {
     position: absolute;
-    top: 25%;
-    right: -120px;
-    width: 380px;
-    height: 380px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 30%, #ffffff 0%, #e8dfc8 60%, #c9bfa3 100%);
-    box-shadow: 0 30px 80px rgba(28, 42, 78, 0.22);
-    opacity: 0.9;
+    top: 50%;
+    right: -80px;
+    transform: translateY(-50%);
+    width: 420px;
+    height: 420px;
     z-index: 0;
-  }
-  .hero::after {
-    content: '';
-    position: absolute;
-    top: 27%;
-    right: -100px;
-    width: 340px;
-    height: 340px;
-    border-radius: 50%;
-    background-image:
-      radial-gradient(circle at 25% 25%, rgba(0,0,0,0.06) 1.5px, transparent 2px),
-      radial-gradient(circle at 75% 35%, rgba(0,0,0,0.06) 1.5px, transparent 2px),
-      radial-gradient(circle at 40% 60%, rgba(0,0,0,0.06) 1.5px, transparent 2px),
-      radial-gradient(circle at 70% 75%, rgba(0,0,0,0.06) 1.5px, transparent 2px),
-      radial-gradient(circle at 20% 80%, rgba(0,0,0,0.06) 1.5px, transparent 2px),
-      radial-gradient(circle at 55% 20%, rgba(0,0,0,0.06) 1.5px, transparent 2px),
-      radial-gradient(circle at 85% 60%, rgba(0,0,0,0.06) 1.5px, transparent 2px);
-    background-size: 60px 60px;
-    z-index: 1;
     pointer-events: none;
+    animation: heroBallFloat 6s ease-in-out infinite;
+  }
+  @keyframes heroBallFloat {
+    0%, 100% { transform: translateY(-50%) translateX(0); }
+    50%      { transform: translateY(-54%) translateX(-6px); }
+  }
+  .hero-ball svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 30px 50px rgba(28, 42, 78, 0.25));
   }
   .hero-content { position: relative; z-index: 2; max-width: 640px; }
+
+  /* SCROLL INDICATOR */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s, transform 0.2s;
+  }
+  .scroll-indicator:hover {
+    color: var(--navy);
+    transform: translateX(-50%) translateY(-3px);
+  }
+  .scroll-indicator-line {
+    width: 1px;
+    height: 32px;
+    background: linear-gradient(to bottom, transparent, var(--gold) 30%, var(--gold));
+    position: relative;
+    overflow: hidden;
+  }
+  .scroll-indicator-line::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: var(--cream);
+    animation: scrollPulse 2.2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%   { top: -10px; }
+    70%  { top: 32px; }
+    100% { top: 32px; }
+  }
+  @media (max-width: 820px) {
+    .scroll-indicator { display: none; }
+  }
   .eyebrow {
     display: inline-block;
     font-size: 12px;
@@ -292,6 +348,67 @@
   }
   h2 em { font-style: italic; color: var(--gold); font-weight: 400; }
   .section-head p { color: var(--muted); font-size: 18px; }
+
+  /* TRUST STRIP */
+  .trust-strip {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .trust-strip-inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    align-items: center;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    justify-content: center;
+    text-align: left;
+  }
+  .trust-icon {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(224, 193, 119, 0.15);
+    border: 1px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold-bright);
+  }
+  .trust-icon svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 2.2;
+  }
+  .trust-text {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .trust-text strong {
+    display: block;
+    color: var(--cream);
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 2px;
+  }
+  .trust-text span {
+    color: rgba(246, 241, 230, 0.7);
+    font-size: 13px;
+  }
+  @media (max-width: 760px) {
+    .trust-strip-inner {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+    .trust-item { justify-content: flex-start; }
+  }
 
   /* ABOUT */
   .about {
@@ -450,7 +567,7 @@
   }
   .option p { color: var(--muted); font-size: 15px; }
 
-  /* EXAMPLES (PLACEHOLDER) */
+  /* EXAMPLES (CATEGORY PLACEHOLDERS) */
   .examples {
     background: var(--cream-deep);
     border-top: 1px solid var(--line);
@@ -464,28 +581,62 @@
   .gallery-item {
     aspect-ratio: 1 / 1;
     background: var(--cream);
-    border: 2px dashed var(--line);
+    border: 1px solid var(--line);
     border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    padding: 20px;
+    padding: 24px 20px;
     color: var(--muted);
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
   }
-  .gallery-item:hover { border-color: var(--gold); }
-  .gallery-item-icon {
-    font-family: 'Fraunces', serif;
-    font-size: 32px;
-    font-style: italic;
+  .gallery-item:hover {
+    border-color: var(--gold);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(28, 42, 78, 0.10);
+  }
+  .gallery-item::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, rgba(201, 164, 73, 0.08), transparent 70%);
+    pointer-events: none;
+  }
+  .gallery-icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 18px;
     color: var(--gold);
-    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  .gallery-item-text {
+  .gallery-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 1.4;
+  }
+  .gallery-item h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .gallery-item p {
     font-size: 13px;
     color: var(--muted);
+    line-height: 1.4;
+    max-width: 200px;
   }
 
   /* CHECKLIST */
@@ -740,7 +891,7 @@
   /* RESPONSIVE */
   @media (max-width: 820px) {
     .hero { padding: 60px 0 80px; }
-    .hero::before, .hero::after { display: none; }
+    .hero-ball { display: none; }
     section { padding: 70px 0; }
     .steps, .options, .gallery { grid-template-columns: 1fr; gap: 18px; }
     .uses-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -783,6 +934,48 @@
 
 <header class="hero">
   <div class="container">
+    <div class="hero-ball" aria-hidden="true">
+      <svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="ballSurface" cx="38%" cy="32%" r="68%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="55%" stop-color="#f5efe0"/>
+            <stop offset="100%" stop-color="#b8ac8f"/>
+          </radialGradient>
+          <radialGradient id="ballHighlight" cx="35%" cy="28%" r="22%">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+          </radialGradient>
+          <pattern id="dimples" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
+            <circle cx="11" cy="11" r="2.6" fill="#000" fill-opacity="0.07"/>
+            <circle cx="11" cy="11" r="1.6" fill="#000" fill-opacity="0.10"/>
+            <circle cx="0"  cy="0"  r="2.6" fill="#000" fill-opacity="0.07"/>
+            <circle cx="22" cy="0"  r="2.6" fill="#000" fill-opacity="0.07"/>
+            <circle cx="0"  cy="22" r="2.6" fill="#000" fill-opacity="0.07"/>
+            <circle cx="22" cy="22" r="2.6" fill="#000" fill-opacity="0.07"/>
+          </pattern>
+          <clipPath id="ballClip">
+            <circle cx="210" cy="210" r="195"/>
+          </clipPath>
+        </defs>
+
+        <circle cx="210" cy="210" r="195" fill="url(#ballSurface)"/>
+        <g clip-path="url(#ballClip)">
+          <rect x="0" y="0" width="420" height="420" fill="url(#dimples)"/>
+        </g>
+
+        <text x="210" y="232" text-anchor="middle"
+              font-family="Fraunces, serif" font-weight="700" font-style="italic"
+              font-size="120" fill="#c9a449" fill-opacity="0.55">B</text>
+        <text x="210" y="270" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-weight="600"
+              font-size="14" letter-spacing="3" fill="#1c2a4e" fill-opacity="0.45">FLYING B</text>
+
+        <ellipse cx="155" cy="135" rx="55" ry="38" fill="url(#ballHighlight)"/>
+        <circle cx="210" cy="210" r="195" fill="none" stroke="#000" stroke-opacity="0.06" stroke-width="1"/>
+      </svg>
+    </div>
+
     <div class="hero-content">
       <span class="eyebrow">Custom Golf Balls · Made to Order</span>
       <h1>Your image. <em>Your ball.</em><br/>Your game.</h1>
@@ -795,7 +988,43 @@
       </div>
     </div>
   </div>
+  <a href="#about" class="scroll-indicator" aria-label="Scroll to learn more">
+    <span>Scroll</span>
+    <span class="scroll-indicator-line" aria-hidden="true"></span>
+  </a>
 </header>
+
+<section class="trust-strip" aria-label="Why customers trust us">
+  <div class="container trust-strip-inner">
+    <div class="trust-item">
+      <div class="trust-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+      </div>
+      <div class="trust-text">
+        <strong>Personal proof first</strong>
+        <span>Approve a mockup before we print</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18"/><path d="M12 3v18"/></svg>
+      </div>
+      <div class="trust-text">
+        <strong>No order too small</strong>
+        <span>One ball or a thousand — both welcome</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><circle cx="9" cy="10" r=".8" fill="currentColor"/><circle cx="15" cy="10" r=".8" fill="currentColor"/></svg>
+      </div>
+      <div class="trust-text">
+        <strong>Made by a fellow golfer</strong>
+        <span>One person, doing this for the fun of it</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="about" id="about">
   <div class="container">
@@ -971,32 +1200,67 @@
     <div class="section-head">
       <div class="section-num">— 06 / Examples</div>
       <h2>A look at <em>past work</em>.</h2>
-      <p>Photos from real orders coming soon. Check back, or email us to see current samples.</p>
+      <p>From wedding favors to tournament logos, here's a sense of what we make. Real photos coming soon — email us to see current samples.</p>
     </div>
     <div class="gallery">
       <div class="gallery-item">
-        <div class="gallery-item-icon">i.</div>
-        <div class="gallery-item-text">Sample coming soon</div>
+        <div class="gallery-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 21s-7-5.5-7-11a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 11-7 11z"/>
+          </svg>
+        </div>
+        <h4>Wedding Favors</h4>
+        <p>Save-the-dates, groomsmen gifts, monogrammed sets</p>
       </div>
+
       <div class="gallery-item">
-        <div class="gallery-item-icon">ii.</div>
-        <div class="gallery-item-text">Sample coming soon</div>
+        <div class="gallery-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M17 4h3v3a3 3 0 0 1-3 3"/><path d="M7 4H4v3a3 3 0 0 0 3 3"/>
+          </svg>
+        </div>
+        <h4>Tournament Logos</h4>
+        <p>Charity scrambles, club championships, corporate outings</p>
       </div>
+
       <div class="gallery-item">
-        <div class="gallery-item-icon">iii.</div>
-        <div class="gallery-item-text">Sample coming soon</div>
+        <div class="gallery-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="7" width="18" height="13" rx="2"/><path d="M3 11h18"/><path d="M12 7V4"/><path d="M9 4h6"/><path d="M9 14h6"/>
+          </svg>
+        </div>
+        <h4>Corporate Branding</h4>
+        <p>Client gifts, conference swag, employee recognition</p>
       </div>
+
       <div class="gallery-item">
-        <div class="gallery-item-icon">iv.</div>
-        <div class="gallery-item-text">Sample coming soon</div>
+        <div class="gallery-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="9" r="3"/><path d="M5 7c0-1 1-2 2-2s2 1 2 2-1 2-2 2-2-1-2-2z"/><path d="M15 7c0-1 1-2 2-2s2 1 2 2-1 2-2 2-2-1-2-2z"/><path d="M3 12c0-1 1-2 2-2s2 1 2 2"/><path d="M17 12c0-1 1-2 2-2s2 1 2 2"/><path d="M5 19c2-3 4-4 7-4s5 1 7 4"/>
+          </svg>
+        </div>
+        <h4>Pet Portraits</h4>
+        <p>Your dog, your cat, your buddy's golden retriever</p>
       </div>
+
       <div class="gallery-item">
-        <div class="gallery-item-icon">v.</div>
-        <div class="gallery-item-text">Sample coming soon</div>
+        <div class="gallery-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v4"/><path d="M5 21V8a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v13"/><path d="M5 21h14"/><circle cx="12" cy="13" r="2"/>
+          </svg>
+        </div>
+        <h4>Memorial Balls</h4>
+        <p>Honoring a loved one or marking a milestone</p>
       </div>
+
       <div class="gallery-item">
-        <div class="gallery-item-icon">vi.</div>
-        <div class="gallery-item-text">Sample coming soon</div>
+        <div class="gallery-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><circle cx="9" cy="10" r=".9" fill="currentColor"/><circle cx="15" cy="10" r=".9" fill="currentColor"/>
+          </svg>
+        </div>
+        <h4>Just for Fun</h4>
+        <p>Funny logos, photos, sayings — whatever makes you smile</p>
       </div>
     </div>
   </div>
@@ -1191,6 +1455,10 @@ Thanks!</pre>
 
     // 4. Inject a "FOUND BALL" section into the regular quote-request templates,
     //    so if they decide to order, they'll also tell us about the find.
+    //    NOTE: We intentionally avoid URLSearchParams here because its toString()
+    //    encodes spaces as "+" (form-urlencoded), which some email clients (Outlook,
+    //    certain mobile clients) leave as literal "+" instead of decoding to spaces.
+    //    encodeURIComponent produces "%20" which all email clients handle correctly.
     const foundSection =
       '===== I FOUND ONE OF YOUR BALLS =====\n' +
       idLine +
@@ -1200,14 +1468,38 @@ Thanks!</pre>
 
     document.querySelectorAll('a[href^="mailto:orders@flyingbindustries.com?subject=Custom"]').forEach(function(link) {
       try {
-        const url = new URL(link.href);
-        let body = url.searchParams.get('body') || '';
-        body = body.replace(
-          'Here are my details:\n',
-          'Here are my details:\n\n' + foundSection
-        );
-        url.searchParams.set('body', body);
-        link.href = url.toString();
+        const href = link.href;
+        const queryStart = href.indexOf('?');
+        if (queryStart === -1) return;
+
+        const base = href.substring(0, queryStart);
+        const query = href.substring(queryStart + 1);
+
+        // Parse the existing params manually, decoding %20 (and any stray +) to spaces.
+        const params = {};
+        query.split('&').forEach(function(pair) {
+          const eq = pair.indexOf('=');
+          if (eq === -1) return;
+          const key = pair.substring(0, eq);
+          // Replace + with %20 first, then decodeURIComponent handles everything as percent-encoded.
+          const rawValue = pair.substring(eq + 1).replace(/\+/g, '%20');
+          params[key] = decodeURIComponent(rawValue);
+        });
+
+        // Inject the found-ball section into the body.
+        if (params.body) {
+          params.body = params.body.replace(
+            'Here are my details:\n',
+            'Here are my details:\n\n' + foundSection
+          );
+        }
+
+        // Rebuild the query using encodeURIComponent (which produces %20 for spaces).
+        const newQuery = Object.keys(params).map(function(k) {
+          return k + '=' + encodeURIComponent(params[k]);
+        }).join('&');
+
+        link.href = base + '?' + newQuery;
       } catch (e) {
         console.error('Could not update mailto link:', e);
       }
