@@ -140,7 +140,7 @@
 
   /* NAV */
   nav {
-    padding: 22px 0;
+    padding: 28px 0;
     border-bottom: 1px solid var(--line);
     background: var(--cream);
   }
@@ -148,44 +148,58 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
   }
   .nav-logo {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 18px;
     text-decoration: none;
     color: inherit;
+    transition: transform 0.25s ease;
   }
+  .nav-logo:hover { transform: translateY(-2px); }
   .nav-logo img {
-    height: 64px;
+    height: 96px;
     width: auto;
     display: block;
+    filter: drop-shadow(0 4px 12px rgba(28, 42, 78, 0.15));
+    transition: filter 0.25s ease;
   }
-  .nav-logo-text {
+  .nav-logo:hover img {
+    filter: drop-shadow(0 8px 20px rgba(28, 42, 78, 0.25));
+  }
+  .nav-logo-tagline {
     font-family: 'Fraunces', serif;
-    font-weight: 600;
-    font-size: 19px;
-    letter-spacing: 0.01em;
-    color: var(--navy);
-    line-height: 1.1;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.3;
+    border-left: 1px solid var(--line);
+    padding-left: 18px;
+    max-width: 200px;
   }
-  .nav-logo-text small {
+  .nav-logo-tagline strong {
     display: block;
+    font-style: normal;
+    font-weight: 600;
     font-size: 11px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--gold);
-    font-weight: 600;
-    margin-top: 3px;
+    margin-bottom: 4px;
+    font-family: 'DM Sans', sans-serif;
   }
   .nav-email {
     font-size: 14px;
     color: var(--muted);
     text-decoration: none;
     border-bottom: 1px solid transparent;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, color 0.2s;
+    flex-shrink: 0;
   }
-  .nav-email:hover { border-color: var(--navy); }
+  .nav-email:hover { border-color: var(--navy); color: var(--navy); }
 
   /* HERO */
   .hero {
@@ -897,8 +911,14 @@
     .uses-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
     .check-list { grid-template-columns: 1fr; gap: 22px; }
     .checklist { padding: 44px 28px; }
-    .nav-inner { flex-direction: column; gap: 12px; align-items: flex-start; }
-    .nav-logo img { height: 52px; }
+    .nav-inner { flex-direction: column; gap: 14px; align-items: flex-start; }
+    .nav-logo img { height: 78px; }
+    .nav-logo-tagline {
+      font-size: 13px;
+      padding-left: 14px;
+      max-width: 160px;
+    }
+    .nav-logo-tagline strong { font-size: 10px; }
   }
   @media (max-width: 480px) {
     .uses-grid { grid-template-columns: 1fr; }
@@ -921,11 +941,11 @@
 
 <nav>
   <div class="container nav-inner">
-    <a href="#" class="nav-logo">
+    <a href="#" class="nav-logo" aria-label="Flying B Industries — home">
       <img src="officialFlyingBLogo.png" alt="Flying B Industries" />
-      <div class="nav-logo-text">
-        Flying B Industries
-        <small>Custom Golf Balls</small>
+      <div class="nav-logo-tagline">
+        <strong>Custom Golf Balls</strong>
+        Made to order, by a fellow golfer
       </div>
     </a>
     <a href="mailto:orders@flyingbindustries.com" class="nav-email">orders@flyingbindustries.com</a>
@@ -1418,11 +1438,26 @@ Thanks!</pre>
        https://flyingbindustries.com?qr=1         (generic QR scan)
        https://flyingbindustries.com?qr=ABC123    (specific ball ID for tracking)
      Supports future expansion: any value other than "1" or "true" is treated as a ball ID.
+
+     Behavior:
+       Every QR scan shows the found-ball experience. We strip ?qr=... from the
+       URL bar after reading it so that bookmarks and shared links don't carry
+       the QR data forward — but we do NOT suppress repeat scans, because finding
+       multiple balls (or rescanning the same one) should always be welcomed.
   */
   (function initQrMode() {
     const params = new URLSearchParams(window.location.search);
     const qr = params.get('qr');
     if (!qr) return; // Not a QR visitor — page stays in default mode.
+
+    // Clean the URL bar so bookmarks/shares don't carry the parameter forward.
+    // Using replaceState (not pushState) so this doesn't add a history entry.
+    try {
+      params.delete('qr');
+      const cleanQuery = params.toString();
+      const cleanUrl = window.location.pathname + (cleanQuery ? '?' + cleanQuery : '') + window.location.hash;
+      window.history.replaceState(null, '', cleanUrl);
+    } catch (e) { /* old browsers — non-fatal */ }
 
     const ballId = (qr === '1' || qr.toLowerCase() === 'true') ? null : qr;
 
@@ -1476,27 +1511,24 @@ Thanks!</pre>
         const query = href.substring(queryStart + 1);
 
         // Parse the existing params manually, decoding %20 (and any stray +) to spaces.
-        const params = {};
+        const linkParams = {};
         query.split('&').forEach(function(pair) {
           const eq = pair.indexOf('=');
           if (eq === -1) return;
           const key = pair.substring(0, eq);
-          // Replace + with %20 first, then decodeURIComponent handles everything as percent-encoded.
           const rawValue = pair.substring(eq + 1).replace(/\+/g, '%20');
-          params[key] = decodeURIComponent(rawValue);
+          linkParams[key] = decodeURIComponent(rawValue);
         });
 
-        // Inject the found-ball section into the body.
-        if (params.body) {
-          params.body = params.body.replace(
+        if (linkParams.body) {
+          linkParams.body = linkParams.body.replace(
             'Here are my details:\n',
             'Here are my details:\n\n' + foundSection
           );
         }
 
-        // Rebuild the query using encodeURIComponent (which produces %20 for spaces).
-        const newQuery = Object.keys(params).map(function(k) {
-          return k + '=' + encodeURIComponent(params[k]);
+        const newQuery = Object.keys(linkParams).map(function(k) {
+          return k + '=' + encodeURIComponent(linkParams[k]);
         }).join('&');
 
         link.href = base + '?' + newQuery;

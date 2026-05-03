@@ -90,6 +90,17 @@ Just add `?qr=1` to your live URL in any browser to preview what a QR visitor se
 
 You should see the gold-bordered navy banner at the top with "You found one of our golf balls!" and a different hero subtitle. Click "Tell us where →" or the regular Request a Quote button — both emails should now include the found-ball questions.
 
+### How repeat scans work
+
+Every QR scan shows the found-ball welcome — there's no "you've seen this before" suppression. Whether someone finds a different ball next week or rescans the same one, they always get the welcome banner and the found-ball email template. This is intentional: every find is a moment worth acknowledging.
+
+The `?qr=...` parameter is automatically stripped from the URL bar after the page loads, so:
+- Bookmarks save the clean URL (no QR data)
+- Shared links don't carry the QR data forward
+- Someone who later types the URL or uses autocomplete just sees the regular site
+
+In short: scanning a ball is what triggers the experience, not visiting the URL. The URL parameter is consumed and removed on arrival.
+
 ## Editing the site
 The whole site is one HTML file. Open `index.html` in any text editor (VS Code is free and great) to change copy, colors, or layout. Push the changes back to GitHub and they go live in seconds.
 
