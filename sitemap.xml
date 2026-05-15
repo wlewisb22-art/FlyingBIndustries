@@ -1,38 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url>
-    <loc>https://flyingbindustries.com/</loc>
-    <lastmod>2026-05-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://flyingbindustries.com/officialFlyingBLogo.png</image:loc>
-      <image:title>Flying B Industries Logo</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://flyingbindustries.com/Wedding_Favors.png</image:loc>
-      <image:title>Custom Wedding Favor Golf Balls</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://flyingbindustries.com/Tournament_Logos.png</image:loc>
-      <image:title>Custom Tournament Logo Golf Balls</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://flyingbindustries.com/Corporate_Branding.png</image:loc>
-      <image:title>Custom Corporate Branding Golf Balls</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://flyingbindustries.com/Pet_Portraits.png</image:loc>
-      <image:title>Custom Pet Portrait Golf Balls</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://flyingbindustries.com/Memorial_Balls.png</image:loc>
-      <image:title>Custom Memorial Golf Balls</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://flyingbindustries.com/Just_for_Fun.png</image:loc>
-      <image:title>Custom Just-for-Fun Golf Balls</image:title>
-    </image:image>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://flyingbindustries.com/</loc></url>
+  <url><loc>https://flyingbindustries.com/uv-printing.html</loc></url>
+  <url><loc>https://flyingbindustries.com/laser-engraving.html</loc></url>
+  <url><loc>https://flyingbindustries.com/waterproof-decals.html</loc></url>
+  <url><loc>https://flyingbindustries.com/3d-printing.html</loc></url>
+  <url><loc>https://flyingbindustries.com/custom-golf-balls.html</loc></url>
+  <url><loc>https://flyingbindustries.com/quote.html</loc></url>
+  <url><loc>https://flyingbindustries.com/policies.html</loc></url>
 </urlset>
